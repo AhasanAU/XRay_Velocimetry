@@ -1,0 +1,33 @@
+# =============================================================================
+# Requirements for XV Lung Disease Analysis Pipeline
+# Install into the .XRayV virtual environment:
+#   .XRayV\Scripts\pip.exe install -r requirements.txt
+#
+# PyTorch (CPU-only build) must be installed separately:
+#   .XRayV\Scripts\pip.exe install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+# =============================================================================
+
+# --- Data Handling ---
+numpy==2.4.3           # Numerical arrays, matrix operations, statistical computations
+pandas==3.0.1          # Data loading (CSV), DataFrame manipulation, groupby operations
+scipy==1.17.1          # Mann-Whitney U test, Shapiro-Wilk normality test, Spearman correlation, skewness/kurtosis
+
+# --- Statistical Analysis ---
+pingouin==0.6.0        # Hedge's g effect size calculation (small-sample corrected Cohen's d)
+
+# --- Machine Learning ---
+scikit-learn==1.8.0    # Random Forest, Logistic Regression, SVM, KNN, Naive Bayes, PCA,
+                       # LeaveOneOut/LeaveOneGroupOut CV, StandardScaler, confusion_matrix,
+                       # accuracy_score, f1_score, roc_auc_score, roc_curve
+xgboost==3.2.0         # XGBoost gradient boosting classifier (advanced_xv_ml.py)
+imbalanced-learn==0.14.1  # SMOTE oversampling to correct the 2:6 Control:Tumor class imbalance
+
+# --- Visualisation ---
+matplotlib==3.10.8     # All figure generation (boxplots, scatter plots, heatmaps, bar charts, ROC curves)
+seaborn==0.13.2        # Statistical plot styling (sns.boxplot, sns.heatmap, sns.barplot, sns.regplot)
+
+# --- Deep Learning (CPU-only build — install separately) ---
+# Run: .XRayV\Scripts\pip.exe install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+torch==2.10.0          # PyTorch core — nn.Conv3d, nn.Linear, BCEWithLogitsLoss, Adam optimiser,
+                       # DataLoader, WeightedRandomSampler, CosineAnnealingLR (advanced_xv_dl.py)
+torchvision==0.25.0    # Required companion library for PyTorch installation
