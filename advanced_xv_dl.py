@@ -2,12 +2,6 @@
 XV Deep Learning Pipeline — Improved (CPU-Optimised)
 Laptop: Intel i7-8650U | 16 GB RAM | CPU-only | PyTorch 2.10
 
-Key improvements over v1:
-  1. BCEWithLogitsLoss + pos_weight=3.0 — penalises Control misclassification 3x more.
-  2. Asymmetric augmentation: 10x copies for Control volumes, 3x for Tumor (corrects the 2:6 imbalance).
-  3. Training-fold threshold search: optimal decision threshold is found on training data
-     (using Youden's J) and applied at test time — no more fixed 0.5 cutoff.
-  4. WeightedRandomSampler for MLP — ensures 50:50 class draw per batch.
 """
 import pandas as pd
 import numpy as np
